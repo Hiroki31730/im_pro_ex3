@@ -4,6 +4,8 @@
 
 import cv2
 import numpy as np
+from matplotlib import pyplot as plt
+
 
 #平均化フィルタ3*3のカーネル作成
 kernel_1 = np.ones((3,3)) / 9
@@ -36,3 +38,11 @@ cv2.imshow("img4",dst3)
 cv2.imshow("img5",dst4)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+#ヒストグラムを表示
+plt.hist(img.ravel(),256,[0,256], alpha=0.5)
+plt.hist(dst.ravel(),256,[0,256], alpha=0.5)
+plt.hist(dst2.ravel(),256,[0,256], alpha=0.5)
+plt.hist(dst3.ravel(),256,[0,256], alpha=0.5)
+plt.hist(dst4.ravel(),256,[0,256], alpha=0.5)
+plt.show()

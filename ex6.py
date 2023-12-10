@@ -2,6 +2,7 @@
 
 import cv2
 import numpy as np
+from matplotlib import pyplot as plt
 
 #先鋭化を行うカーネルの関数を作成
 def sharp_k(k: int):
@@ -27,4 +28,8 @@ cv2.imshow("img",dst)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
+#ヒストグラムを表示
+plt.hist(img.ravel(),256,[0,256], alpha=0.5)
+plt.hist(dst.ravel(),256,[0,256], alpha=0.5)
 
+plt.show()
